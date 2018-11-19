@@ -6,11 +6,11 @@ const bodyParser = require( 'body-parser' );
 app.use( express.static( './server/public' ) );
 app.use( bodyParser.urlencoded( { extended: true } ) );
 // globals
-const port = 5000;
+const PORT = process.env.PORT || 5000; //use generated PORT OR locally designated
 let history = [];
 // spin up server
-app.listen( port, ()=>{
-    console.log( 'server is up on:', port );
+app.listen( PORT, ()=>{
+    console.log( 'server is up on:', PORT );
 }) // end server up
 // routes
 app.get( '/calculate', ( req, res )=>{
